@@ -3,11 +3,22 @@ import { readable } from 'svelte/store'
 
 const MINIMUM_DESKTOP_WIDTH = 820
 
+export const screenWidth = readable(MINIMUM_DESKTOP_WIDTH, set => {
+
+  const width = () => document.body.offsetWidth
+  const calc = () => set(width())
+  
+  calc()
+  window.addEventListener('resize', calc)
+
+  return () => window.removeEventListener('resize', calc)
+})
 export const isDesktop = readable(true, set => {
 
+
   setTimeout(() => {
-    set(false) // fuck yeah
-  }, 10000)
+    set($screenWidth) // fuck yeah
+  }, 1000)
 
   return () => {}
 })

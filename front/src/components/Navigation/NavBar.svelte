@@ -1,9 +1,10 @@
 <script>
 
-  import { isDesktop } from './../../store'
+  import { isDesktop, screenWidth } from './../../store'
 
 </script>
 
 <nav>
   {$isDesktop}
+  {$screenWidth}
 </nav>
