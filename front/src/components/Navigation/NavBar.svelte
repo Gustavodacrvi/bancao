@@ -1,5 +1,7 @@
 <script>
 
+  import AppButton from './../Auth/Button.svelte'
+
   import { location, push } from 'svelte-spa-router'
 
   import { platform } from './../../store'
@@ -19,7 +21,7 @@
       <span class="link" class:active={act('/profile')} on:click={go('/profile')}>Perfil</span>
       <span class="link" class:active={act('/contact')} on:click={go('/contact')}>Contato</span>
     </div>
-    freaking button
+    <AppButton>Entrar</AppButton>
   </div>
 </nav>
 
