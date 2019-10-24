@@ -11,8 +11,6 @@
 
 <style>
 
-
-
 </style>
 
 <NavBar/>

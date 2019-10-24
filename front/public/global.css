@@ -16,7 +16,7 @@
   --light-gray: #ACACAC;
 }
 
-body, button, input, textarea {
+body, button, input, textarea, span {
   font-family: "Work Sans";
   color: gray;
 }

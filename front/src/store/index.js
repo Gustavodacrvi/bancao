@@ -13,5 +13,11 @@ export const screenWidth = readable(MINIMUM_DESKTOP_WIDTH, set => {
 
   return () => window.removeEventListener('resize', calc)
 })
+
 export const isDesktop = derived(screenWidth,
   $width => $width >= MINIMUM_DESKTOP_WIDTH)
+
+export const platform = derived(isDesktop, $desktop => {
+  if ($desktop) return 'desktop'
+  return 'mobile'
+})
