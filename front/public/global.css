@@ -1,0 +1,27 @@
+
+@font-face {
+  font-family: "Work Sans";
+  src: url('./fontes/WorkSans-Light.otf');
+}
+
+@font-face {
+  font-family: "Work Sans Bold";
+  src: url('./fontes/WorkSans-Bold.otf');
+}
+
+:root {
+  --back-color: #F2F2F2;
+  --green: #3ABF53;
+  --gray: #707070;
+  --light-gray: #ACACAC;
+}
+
+body, button, input, textarea, span {
+  font-family: "Work Sans";
+  color: gray;
+}
+
+body {
+  margin: 0;
+  background-color: var(--back-color);
+}
