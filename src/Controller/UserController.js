@@ -3,13 +3,12 @@ const User = require('../models/User')
 module.exports = {
     async index(req, res){
         const user = await User.findAll()
-        if(user) return res.send({user})
-        else return res.send('There is no user')
+        if(user) return res.send(user)
     },
     async store(req, res){
         const {name, email, password} = req.body
-        const user = await User.create({name, email,})
-        console.log(user)
+        const user = await User.create({name, email, password})
+        res.send(user)
     },
     async update(req, res){
         const {id} = req.params
@@ -21,7 +20,6 @@ module.exports = {
                     id
                 }
             }).then(user => res.send(user))
-            return res.send(u.f)
         }
         else return res.send({'error': 'User not found'})
     },
