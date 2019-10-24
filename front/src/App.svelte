@@ -1,19 +1,20 @@
 
 <script>
 
-  import Router, { location } from 'svelte-spa-router'
-  import routes from './router.js'
+  import NavBar from './components/Navigation/NavBar.svelte'
 
-  export let name
+  import Router from 'svelte-spa-router'
+
+  import routes from './router.js'
   
 </script>
 
 <style>
-	h1 {
-		color: purple
-	}
+
+
+
 </style>
 
-<h1>Hello {$location}!</h1>
+<NavBar/>
 
 <Router {routes}/>
