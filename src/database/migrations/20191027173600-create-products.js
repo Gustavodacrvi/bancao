@@ -11,7 +11,7 @@ module.exports = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'}
-      , name:{type: Sequelize.STRING, allowNull: false}, sell_price:{type: Sequelize.DOUBLE(6, 2), allowNull: false}, buy_price:{type: Sequelize.DOUBLE(6, 2), allowNull: false}, validated: {type: Sequelize.DATEONLY}});
+      , name:{type: Sequelize.STRING, allowNull: false}, sell_price:{type: Sequelize.DECIMAL(6, 2), allowNull: false}, buy_price:{type: Sequelize.DECIMAL(6, 2), allowNull: false}, validated: {type: Sequelize.DATEONLY}});
   },
 
   down: (queryInterface, Sequelize) => {

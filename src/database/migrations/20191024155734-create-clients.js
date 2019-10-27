@@ -34,7 +34,7 @@ module.exports = {
   });
   },
 
-  downSequelize.INTEGER: (queryInterface, Sequelize) => {
+  down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('clients');
   }
 };
