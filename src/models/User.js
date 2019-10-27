@@ -11,6 +11,9 @@ class User extends Model{
         }
         )
     }
+    static associate(models){
+        this.hasMany(models.Clients, {foreignKey: 'user_id', as: 'clients'})
+    }
 }
 
 module.exports = User

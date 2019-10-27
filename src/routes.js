@@ -11,14 +11,15 @@ router.get('/', (req, res)=>{
 function User(){
     router.get('/users', UserController.index)
     router.post('/users',UserController.store)
-    router.put('/users/:id',UserController.update)
-    router.delete('/users/:id',UserController.remove)
+    router.put('/users/',UserController.update)
+    router.delete('/users/',UserController.remove)
+    router.get('/logout', UserController.logout)
 }
 User()
 function Clients(){
-    router.get('/users/:user_id/clients', ClientController.index)
-    router.post('/users/:user_id/clients', ClientController.store)
-    router.put('/users/:user_id/clients/:id', ClientController.update)
+    router.get('/users/clients', ClientController.index)
+    router.post('/users/clients', ClientController.store)
+    router.put('/users/clients/:id', ClientController.update)
     router.delete('/users/:user_id/clients/:id', ClientController.remove)
 }
 Clients()
