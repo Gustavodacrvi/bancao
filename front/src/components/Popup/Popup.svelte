@@ -1,12 +1,20 @@
 
 <script>
 
+  import { popup } from './../../store'
+
+  let currentPopup = null
+
+  const unsub = popup.subscribe(v => currentPopup = v)
+
 </script>
 
 <div class="Popup">
+  {#if $popup}
   <div class="content">
-    açlsdjkf
+    {$popup.comp}
   </div>
+  {/if}
 </div>
 
 <style>
@@ -20,6 +28,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 
 .content {
