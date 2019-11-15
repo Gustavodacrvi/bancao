@@ -2,20 +2,22 @@
 <script>
 
   import { popup } from './../../store'
+  import { fade } from 'svelte/transition'
 
   let currentPopup = null
 
   const unsub = popup.subscribe(v => currentPopup = v)
+  const closePopup = () => popup.set(null)
 
 </script>
 
-<div class="Popup">
-  {#if $popup}
-  <div class="content">
-    {$popup.comp}
+{#if $popup}
+  <div class="Popup" transition:fade="{{duration: 200}}" on:click={closePopup}>
+    <div class="content">
+      {$popup.comp}
+    </div>
   </div>
-  {/if}
-</div>
+{/if}
 
 <style>
 
@@ -28,7 +30,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none;
 }
 
 .content {
