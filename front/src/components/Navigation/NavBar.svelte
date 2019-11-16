@@ -8,7 +8,7 @@
 
   const go = str => () => push(str)
 
-  const popLogin = () => popup.set({comp: 'Signup'})
+  const popLogin = () => popup.set({comp: 'Signin'})
 
 </script>
 
