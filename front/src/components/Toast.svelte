@@ -6,7 +6,7 @@
 </script>
 
 
-  <div class="Toast card rb shadow">
+  <div class="Toast card rb shadow error">
     <span>açsldjfkasçljfdk</span>
   </div>
 
@@ -21,6 +21,18 @@
   display: flex;
   align-items: center;
   padding: 0 20px;
+}
+
+.error {
+  border: 2px solid var(--red);
+}
+
+.success {
+  border: 2px solid var(--green);
+}
+
+.warning {
+  border: 2px solid var(--yellow);
 }
 
 </style>
