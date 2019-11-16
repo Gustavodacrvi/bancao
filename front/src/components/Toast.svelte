@@ -1,14 +1,27 @@
 
 <script>
 
+  import { toast } from './../store'
+  import { fade } from 'svelte/transition'
 
+  const unsub = toast.subscribe(() => {})
+
+  $: {
+    $toast;
+    setTimeout(() => {
+      if ($toast && $toast.seconds)
+        setTimeout(() => toast.set(null), $toast.seconds * 1000)
+    })
+  }
+  
 
 </script>
 
-
-  <div class="Toast card rb shadow error">
-    <span>açsldjfkasçljfdk</span>
+{#if $toast}
+  <div class="Toast card rb shadow error" transition:fade="{{duration: 200}}">
+    <span>{$toast.name}</span>
   </div>
+{/if}
 
 <style>
 

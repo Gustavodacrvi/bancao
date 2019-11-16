@@ -5,6 +5,7 @@ const MINIMUM_DESKTOP_WIDTH = 820
 
 
 export const popup = writable(null)
+export const toast = writable(null)
 
 export const screenWidth = readable(MINIMUM_DESKTOP_WIDTH, set => {
 

@@ -3,10 +3,11 @@
 
   import Input from './../../Auth/Input.svelte'
   import Button from './../../Auth/Button.svelte'
+  import { toast as savedToast } from './../../../store'
 
   let email, username, password, confirm = ''
 
-  const toast = () => {}
+  const toast = t => savedToast.set(t)
 
   const errToast = msg => toast({
     name: msg,
