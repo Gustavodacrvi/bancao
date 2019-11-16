@@ -14,6 +14,7 @@
   --green: #3ABF53;
   --gray: #707070;
   --light-gray: #ACACAC;
+  --white: rgb(250,250,250);
 }
 
 body, button, input, textarea, span {
@@ -24,4 +25,20 @@ body, button, input, textarea, span {
 body {
   margin: 0;
   background-color: var(--back-color);
+}
+
+.card {
+  background-color: var(--white);
+}
+
+.rb {
+  border-radius: 6px;
+}
+
+.tac {
+  text-align: center;
+}
+
+.shadow {
+  box-shadow: 0 2px 8px rgba(150,150,150,.4);
 }

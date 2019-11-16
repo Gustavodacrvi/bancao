@@ -4,6 +4,10 @@
   import { popup } from './../../store'
   import { fade } from 'svelte/transition'
 
+  import Signup from './Auth/Signup.svelte'
+
+  const components = {Signup}
+
   let currentPopup = null
 
   const unsub = popup.subscribe(v => currentPopup = v)
@@ -13,28 +17,20 @@
 
 {#if $popup}
   <div class="Popup" transition:fade="{{duration: 200}}" on:click={closePopup}>
-    <div class="content">
-      {$popup.comp}
-    </div>
+    <svelte:component this={components[$popup.comp]}/>
   </div>
 {/if}
 
 <style>
 
 .Popup {
-  background-color: rgba(0,0,0,.2);
   position: fixed;
   top: 0;
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.content {
-  flex-basis: 300px;
-  height: 400px;
+  align-items: flex-start;
 }
 
 </style>
