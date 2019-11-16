@@ -5,8 +5,9 @@
   import { fade } from 'svelte/transition'
 
   import Signup from './Auth/Signup.svelte'
+  import Signin from './Auth/Signin.svelte'
 
-  const components = {Signup}
+  const components = {Signup, Signin}
 
   let currentPopup = null
 
