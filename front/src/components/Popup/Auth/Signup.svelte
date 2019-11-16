@@ -6,6 +6,28 @@
 
   let email, username, password, confirm = ''
 
+  const toast = () => {}
+
+  const errToast = msg => toast({
+    name: msg,
+    seconds: 4,
+    type: 'error'
+  })
+
+  const tooBig = name => name.length > 50
+
+  const create = () => {
+    if (!email || !username || !password || !confirm)
+      errToast('Por favor preencha todos os campos.')
+    else if (tooBig(email) || tooBig(username) || tooBig(password) || tooBig(confirm))
+      errToast('O número máximo de caracteres é 50.')
+    else if (password !== confirm) {
+      errToast('As senhas não batem.')
+    } else {
+      // login
+    }
+  }
+
 </script>
 
 <div class="Signup card rb shadow" on:click|stopPropagation>
@@ -26,7 +48,7 @@
       <Input placeholder="Confirm:" type="password" value="" on:input={({detail}) => confirm = detail}/>
     </div>
     <div class="margin tac" style="margin-bottom: 10px">
-      <Button>Criar conta</Button>
+      <Button on:click={create}>Criar conta</Button>
     </div>
   </div>
 </div>
