@@ -1,11 +1,16 @@
 
 <script>
 
+  import Input from './../../Auth/Input.svelte'
+
 </script>
 
-<div class="Signup card rb shadow">
+<div class="Signup card rb shadow" on:click|stopPropagation>
   <div class="tac">
     <h3>Criar uma conta!</h3>
+  </div>
+  <div>
+    <Input/>
   </div>
 </div>
 
