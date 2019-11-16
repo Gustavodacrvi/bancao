@@ -1,14 +1,14 @@
 <script>
 
   import AppButton from './../Auth/Button.svelte'
-
   import { location, push } from 'svelte-spa-router'
-
-  import { platform } from './../../store'
+  import { platform, popup } from './../../store'
   
   $: act = str => $location === str  
 
   const go = str => () => push(str)
+
+  const popLogin = () => popup.set({comp: 'Signup'})
 
 </script>
 
@@ -21,7 +21,7 @@
       <span class="link" class:active={act('/profile')} on:click={go('/profile')}>Perfil</span>
       <span class="link" class:active={act('/contact')} on:click={go('/contact')}>Contato</span>
     </div>
-    <AppButton>Entrar</AppButton>
+    <AppButton on:click={popLogin}>Entrar</AppButton>
   </div>
 </nav>
 

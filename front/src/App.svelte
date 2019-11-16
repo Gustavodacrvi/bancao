@@ -2,6 +2,8 @@
 <script>
 
   import NavBar from './components/Navigation/NavBar.svelte'
+  import Popup from './components/Popup/Popup.svelte'
+  import Toast from './components/Toast.svelte'
 
   import Router from 'svelte-spa-router'
 
@@ -13,6 +15,8 @@
 
 </style>
 
-<NavBar/>
+<Popup/>
+<Toast/>
 
+<NavBar/>
 <Router {routes}/>
