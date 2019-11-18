@@ -17,7 +17,7 @@ module.exports = {
     async store(req, res){
         const {user_id} = req.session
         const user = await User.findByPk(user_id, {include: {
-            association: 'clients'
+          association: 'clients'
         }})
         const {name, email, phone} = req.body
         if(user){

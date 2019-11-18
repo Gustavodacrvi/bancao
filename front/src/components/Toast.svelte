@@ -18,7 +18,7 @@
 </script>
 
 {#if $toast}
-  <div class="Toast card rb shadow error" transition:fade="{{duration: 200}}">
+  <div class="Toast card rb shadow" transition:fade="{{duration: 200}}">
     <span>{$toast.name}</span>
   </div>
 {/if}

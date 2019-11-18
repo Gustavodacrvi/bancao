@@ -23,6 +23,8 @@
   border-radius: 6px;
   border: none;
   background-color: var(--back-color);
+  font-size: 1em;
+  outline: none;
 }
 
 </style>

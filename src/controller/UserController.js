@@ -7,21 +7,27 @@ module.exports = {
     },
     async store(req, res){
         let {name, email, password} = req.body
+        console.log(name, email, password)
         password = await bcrypt.hash(password, 10)
         const user = await User.create({name, email, password})
-        req.session.user_id = user.id
         res.send(user)
     },
     async login(req, res){
-        const {user_id} = req.session
-        const {email, password} = req.body
-        const user = await User.findByPk({id:user_id})
-        if (user.email == email && await bcrypt.compare(password, user.password)){
-            res.send(`You're logged in`)
+        let {email, password} = req.body
+        const user = await User.findAll({where:{
+            email,
+        }})
+        if (user.length === 1) {
+            use = user[0]
+            if (use.email === email && await bcrypt.compare(password, use.password)){
+                req.session.user_id = use.id
+                res.send('User logged in')
+            }
+        } else {
+            res.send({'error': "I can't find the email"})
         }
     },
     async update(req, res){
-        const {user_id} = req.session
         const {name, email, password} = req.body
         const user = await User.findByPk({id:user_id})
         if (user){
