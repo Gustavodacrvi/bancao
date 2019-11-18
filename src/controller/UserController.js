@@ -15,15 +15,15 @@ module.exports = {
     async login(req, res){
         let {email, password} = req.body
         const user = await User.findAll({where:{
-            email:email
+            email,
         }})
-        if(user.length == 1){
+        if (user.length === 1) {
             use = user[0]
-            if (use.email == email && await bcrypt.compare(password, use.password)){
+            if (use.email === email && await bcrypt.compare(password, use.password)){
                 req.session.user_id = use.id
                 res.send('User logged in')
             }
-        }else{
+        } else {
             res.send({'error': "I can't find the email"})
         }
     },

@@ -3,6 +3,7 @@
 
   import Input from './../../Auth/Input.svelte'
   import Button from './../../Auth/Button.svelte'
+  import axios from 'axios'
   import { toast as savedToast, popup } from './../../../store'
 
   let email, password = ''
@@ -23,9 +24,20 @@
     else if (tooBig(email) || tooBig(password))
       errToast('O número máximo de caracteres é 50.')
     else {
-      // login
+      axios.post('/users/login', {
+        email, password
+      }).then(res => {
+        if (!res.data.error) {
+          toast({
+            name: 'Parabéns seu merda!',
+            seconds: 4,
+            type: 'success',
+          })
+          console.log(res.data)
+        }
+        else errToast('DIE!!!!!')
+      }).catch(err => errToast('Freaking erro'))
     }
-
   }
   const signup = () => popup.set({comp: 'Signup'})
 
