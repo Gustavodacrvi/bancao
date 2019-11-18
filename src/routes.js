@@ -2,6 +2,11 @@ const express = require('express')
 const router = express.Router()
 const UserController = require('./controller/UserController')
 const ClientController = require('./controller/ClientController')
+const path = require('path')
+
+const publicPath = express.static(path.join(__dirname, '../front/public'), { redirect : false })
+
+router.use(publicPath)
 
 router.get('/users', UserController.index)
 router.post('/users/signup',UserController.store)
@@ -15,7 +20,7 @@ router.put('/users/clients/:id', ClientController.update)
 router.delete('/users/:user_id/clients/:id', ClientController.remove)
 
 router.get('*', (req, res)=>{
-  res.sendFile('../front/public/index.html')
+  res.sendFile(path.join(__dirname, "../front/public/index.html"))
 })
 
 module.exports = router

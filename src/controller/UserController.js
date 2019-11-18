@@ -7,9 +7,10 @@ module.exports = {
     },
     async store(req, res){
         let {name, email, password} = req.body
-        password = await bcrypt.hash(password, 10)
+        console.log(name, email, password)
+        /* password = await bcrypt.hash(password, 10)
         const user = await User.create({name, email, password})
-        res.send(user)
+        res.send(user) */
     },
     async login(req, res){
         let {email, password} = req.body
