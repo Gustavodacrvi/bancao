@@ -3,6 +3,7 @@
 
   import Input from './../../Auth/Input.svelte'
   import Button from './../../Auth/Button.svelte'
+  import axios from 'axios'
   import { toast as savedToast } from './../../../store'
 
   let email, username, password, confirm = ''
@@ -25,7 +26,13 @@
     else if (password !== confirm) {
       errToast('As senhas não batem.')
     } else {
-      // login
+      axios.post('/users/signup', {email, name: username, password}).then(res => {
+        if (res.status === 200) toast({
+          name: 'Você consegui seu merda!',
+          seconds: 4,
+          type: 'success',
+        })
+      }).catch(err => errToast("Cocô"))
     }
   }
 
